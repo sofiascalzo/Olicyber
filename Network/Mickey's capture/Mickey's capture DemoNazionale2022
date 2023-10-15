@@ -1,0 +1,31 @@
+Mickey's capture
+
+Dal nome (come Mickey mouse) e osservando i primi pacchetti si puo capire che si tratta di un mouse,
+quindi molto probabilmente dei muovimenti del mouse
+ 
+al file pcap applico il filtro per ottentere gli interrupt
+(usb.transfer_type == 0x01) && !(usb.capdata == 00:00:00:00:00:00:00:00)
+
+Salvo i pacchetti filtrati in un file "filter.pcapng"
+File > Export specified packets
+
+da terminale salvo le coordinate non ancora leggibili dei movimenti del mouse:
+tshark -r ./filter.pcapng -Y 'usb.capdata' -T fields -e usb.capdata | sed 's/../:&/g2' > stripped.txt
+
+installo da terminale
+sudo apt install gawk
+
+ed eseguo il comando per ottenere le coordinate leggibili:
+gawk -F: 'function comp(v) { if (v > 127) v -= 256; return v } { x += comp(strtonum("0x" $2)); y += comp(strtonum("0x" $3)) } $1 == "01" { print x, y }' stripped.txt > coords.txt
+
+installo da terminale:
+sudo apt install gnuplot-qt 
+
+poi eseguo i comandi:
+gnuplot
+plot "coords.txt"
+
+e mi si apre un immagine, la ruoto due volte, faccio flip verticale (tipo specchio q | p) e leggo il contenuto
+
+#https://medium.com/@forwardsecrecy/hackmethod-july-2017-challenges-write-up-1303f414c8d6
+flag{posso_catturar3_anche_pacchett1_U5b!}

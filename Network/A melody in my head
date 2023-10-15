@@ -1,0 +1,27 @@
+A melody in my head
+
+basta seguire i vari stram e salvarsi i login andati a buon termine
+mi collego a nc finchè non vedo una stessa nonce, e copio la stessa stringa (rossa) 
+
+es
+tcp.stream eq2
+SERVER HELLO
+NONCE 23
+2a3a1630446304ab588ef90f32b8d3db88933f9737016e60df5cb3a2dca19b74
+LOGIN SUCC
+FLAG flag{7h1S_1s_n07_tH3_f14G}
+
+SERVER HELLO
+NONCE 02 eq3
+0cce6bab87baa7031b69539ac1a211f202fc35cc8f3ac27fdb7e527527310f0e
+LOGIN SUCC
+FLAG flag{7h1S_1s_n07_tH3_f14G}
+
+nc
+>nc melody.challs.olicyber.it 10020
+SERVER HELLO
+NONCE 02
+>0cce6bab87baa7031b69539ac1a211f202fc35cc8f3ac27fdb7e527527310f0e
+LOGIN SUCC
+FLAG flag{i7s_l1k3_My_iP0ds_s7ucK_oN_R3P14y}
+

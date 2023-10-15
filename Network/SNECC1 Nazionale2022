@@ -1,0 +1,33 @@
+Siccome è impossibile prevedere le operazioni che si aspetta il server dato un certo numero x, allora aspetto che mi chieda una delle soluzioni che già conosco grazie al pcap. eccone alcune:
+(Lo stream 0 e 3 confermano che le operazioni sono sempre le stesse)
+
+88 
+276
+
+44
+470
+
+96
+438
+
+37
+593
+
+69
+450
+
+71
+140
+
+
+Risposta:
+'''
+1. Login con password
+2. Comincia comunicazione segreta
+3. Stampa la prima flag
+4. Stampa sorgente
+5. Esci
+> 3
+flag{replay_e_non_reply}
+'''
+

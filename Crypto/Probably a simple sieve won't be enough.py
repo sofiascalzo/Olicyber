@@ -1,0 +1,23 @@
+
+
+ciphertext = 6513402340379073542230710001434049959082564276254477896792619
+ciphertext2 = 2739603094136133383923409703861575117091198809308633380325460
+
+# ho utilizzato factordb per fattorizzare n
+
+n=9565158649535229609530047362785645907094563351070470563788237
+p=3450850486082503930213321971551
+q=2771826449193354891007108898387
+e = 65537  
+phi = (p - 1) * (q - 1)
+d = pow(e, -1, phi)
+flag = pow(ciphertext, d, n)
+flag2 = pow(ciphertext2, d, n)
+flag = bytes.fromhex(hex(flag)[2:]).decode()
+flag2 = bytes.fromhex(hex(flag2)[2:]).decode()
+print(flag+flag2)
+
+#flag{s0m3tim3s_s1z3_d0es_m4tt3r}
+
+
+

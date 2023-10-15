@@ -1,0 +1,33 @@
+zio frank
+
+riga58
+def is_admin(username)
+  statement = $client.prepare("SELECT is_admin FROM users WHERE username=? LIMIT 1")
+  is_admin_result = statement.execute(username)
+  return is_admin_result.first["is_admin"]==1 ? true : false
+  
+controlla che sia admin solo una volta se è admin, quindi prende il primo
+scopo trovare username admin
+admin init crea nuovo admin e stampa username
+
+tabella con campo username, password, is_admin
+
+esempio di tabella:
+```
+admin-4f72203edcc6604d9caf9a30138e9a3d, ***********, True
+Sofia, Sofix, False
+Scalzo, Sofi, False
+```
+
+se avessi due account con lo stesso nome, la vuln è che controlla solo il campo admin di quell'username:
+```
+```
+admin-4f72203edcc6604d9caf9a30138e9a3d, ***********, True
+admin-4f72203edcc6604d9caf9a30138e9a3d, Sofix, False
+```
+```
+quindi con il codice "ziofrank.py" creo un account admin, e ricevo l'username di admin
+mi registro con quell'username
+faccio il login
+
+flag{s1mpl3r_th4n_3xp3ct3d_but_ruby_1s_c00l_y34h} 

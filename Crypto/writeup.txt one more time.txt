@@ -1,0 +1,12 @@
+da terminale 
+mtp output.txt
+indovino la scritta, appare la flag
+il crittositema che sto utilizzando....
+
+acn{Fred Mikel}
+
+Ciao, sono preoccupata che ci stiano scoprendo.
+So che il reparto IT sta lavorando sul file in allegato per capire chi e stato il colpevole.
+Riesci a capire se troveranno la nostra e-mail e il file che ti ho inviato?
+
+Password zip: fulmicotone
