@@ -1,0 +1,5 @@
+qui:https://stackoverflow.com/questions/36530643/use-binwalk-to-extract-all-files
+ho trovato: binwalk --dd='.*' belandi
+
+qui: https://ezgif.com/split/ezgif-2-b04c9699b4.gif ho preso la flag
+flag{best_ghidra_functionality_tbh_4787351f}

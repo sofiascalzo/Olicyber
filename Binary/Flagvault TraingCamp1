@@ -1,0 +1,35 @@
+Flagvault
+
+Analizzo con Ghidra la chall:
+clicco su "main"
+poi su "Guess, "getPass" per vedere come viene generata la password e noto questo "iVar1 = rand()"
+quindi una funzione random senza seed. Questo vuol dire che posso vedere la password salvata nello stack con Gdb
+
+>chmod +x flagvault
+>gdb flagvault
+>run
+>aaa
+>break strncmp
+>run
+>aaa
+>x/20s $rdi  
+>x/s 0x5555555592a0  
+
+
+'''
+nc flagvault.challs.olicyber.it 34000
+Inserisci la password:
+49CMO:N?O2CD                         
+flag{r4nd_1s_n0t_r4nd}
+
+'''
+
+
+x/20s $rdi 
+(x: Questo è il comando di GDB che sta per "examine" (esamina). Viene utilizzato per esaminare la memoria in un formato specifico.
+ /20: Specifica che verranno esaminati 20 elementi. Questa parte può essere adattata al numero desiderato di elementi da visualizzare.
+ s: Questo formato indica che stai cercando di esaminare una stringa.
+ $rdi: Questa è la parte dell'indirizzo. $rdi è un riferimento al registro RDI. I registri sono parti della memoria molto veloci che il processore utilizza per eseguire operazioni temporanee. Nel contesto del comando, stai accedendo all'indirizzo contenuto nel registro RDI.)
+ 
+ x/s 0x5555555592a0   
+ (x sta per "examine" (esamina), mentre s sta per "string". Quindi, x/s ti consente di esaminare la memoria come una stringa di caratteri)

@@ -1,0 +1,11 @@
+Van_Halen
+come suggerisce la canzone bisogna fare un jump alla funzione 
+molto poco sospetta "funzione_totalmente_anonima_non_mi_lanciare" visibile da ghidra
+con gdb da terminale:
+chomd +x van_halen
+>gdb van_halen
+>disas main
+>break main
+>run
+>jump funzione_totalmente_anonima_non_mi_lanciare
+flag{g0_4h3ad_4nd_jump}
